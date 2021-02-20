@@ -23,7 +23,7 @@ MFC를 사용해 Multi-thread App을 개발 할 때 중요한것 중 하나는 G
 2. 마우스 왼쪽 버튼클릭 이벤트 처리.   
 3. 위 두 과정을 바탕으로 Button Control이 클릭되었는지 판단 할 것이다.</br> 
 
-그리고 여러분은 버튼을 눌렀을 때의 동작을 정의하기위해 <span style="color:#D271FF">BN_CLICKED</span>를 어떤 방법으로든 재정의 했을것이다. 
+그리고 여러분은 버튼을 눌렀을 때의 동작을 정의하기위해 `BN_CLICKED`를 어떤 방법으로든 재정의 했을것이다. 
 ```cpp
 BEGIN_MESSAGE_MAP(CMFCApplicationDlg, CDialogEx)
 	ON_BN_CLICKED(IDOK, &CMFCApplication1Dlg::OnBnClickedOk)
