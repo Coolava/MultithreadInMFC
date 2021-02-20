@@ -2,8 +2,7 @@
 About develop multi-thread MFC application.
 
 >1. [MFC 는 어떻게 동작하는가?](#MFC는-어떻게-동작하는가?)   
->>- [Sendmessage와 PostMessage](#MFC는-어떻게-동작하는가?)  
->>- [실제상황](#MFC는-어떻게-동작하는가?)      
+>>- [Message Queue](#Message-Queue)     
 
 >2. [Thread도 한번 알아보자.](#MFC는-어떻게-동작하는가?)   
 >>- [동기화](#MFC는-어떻게-동작하는가?)   
@@ -40,7 +39,7 @@ END_MESSAGE_MAP()
 ```
 이런 매크로의 형태로 정의되어있고 이어서 `ON_CONTROL` 까지 확인 할 수 있다.   
 마지막으로 `WM_COMMAND` 는 특정한 값으로 정의되어있는것을 볼 수 있다.    
-[MSDN](https://docs.microsoft.com/en-us/windows/win32/menurc/wm-command)에서는 컨트롤이 부모창에 알림 `메세지`를 보낼 때 전송된다고 한다. 
+[MSDN](https://docs.microsoft.com/en-us/windows/win32/menurc/wm-command)에 `WM_COMMAND`를 찾아보면 컨트롤이 부모창에 알림 `메세지`를 보낼 때 전송된다고 한다. 
 
 
 </br>
@@ -73,9 +72,16 @@ while( (bRet = GetMessage( &msg, NULL, 0, 0 )) != 0)
 </br>
 
 
-## 그렇다면 Thread는 ?
-***
-스레드는 이렇게 동작하고 
+# Multi-thread  
+
+그렇다면 Thread를 사용 할 때는 어떻게 해야 할까?
+
+</br>
+
+## 여러개의 스레드에서 GUI에 접근하는 것을 피하자.
+우리는 위에서 GUI Control에 접근 하게되면 메세지가 발생하는것을 확인했다.   
+ 이 메세지는 Edit Control에서 Text를 가져 올 때 조차 발생한다. 또한 MFC의 중심에는 FIFO(First in first Out)의 Message Queue가 있다. 여러개의 스레드에서 GUI Control에 접근하게되면 Message Queue에는 처리되지못한 메세지들이 쌓이게 될 것이다.   
+이 때 발생하는것이 흔히 말하는 `렉` 이다.
 
 </br>
 
