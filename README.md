@@ -12,7 +12,6 @@ About develop multi-thread MFC application.
 </br>
 
 ## MFC는 어떻게 동작하는가?
-***
 message loop ... 어쩌고 저쩌고   
 MFC를 사용해 Multi-thread App을 개발 할 때 중요한것 중 하나는 GUI Control에 대한 입력은 즉시 처리되지 않는다는 것이다.   
 
