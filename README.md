@@ -30,7 +30,7 @@ BEGIN_MESSAGE_MAP(CMFCApplicationDlg, CDialogEx)
 END_MESSAGE_MAP()
 ```
 코드에는 위와같은 구문이 생겼을 것이다.   
-여기서  <span style="color:#D271FF">ON_BN_CLICKED</span> 라는 것을 따라가보면   
+여기서  `ON_BN_CLICKED` 라는 것을 따라가보면   
 ```cpp
 #define ON_BN_CLICKED(id, memberFxn) \
 	ON_CONTROL(BN_CLICKED, id, memberFxn)
@@ -39,9 +39,9 @@ END_MESSAGE_MAP()
 	{ WM_COMMAND, (WORD)wNotifyCode, (WORD)id, (WORD)id, AfxSigCmd_v, \
 		(static_cast< AFX_PMSG > (memberFxn)) },
 ```
-이런 매크로의 형태로 정의되어있고 이어서 <span style="color:#D271FF">ON_CONTROL</span> 까지 확인 할 수 있다.   
-마지막으로 <span style="color:#D271FF">WM_COMMAND</span> 는 특정한 값으로 정의되어있는것을 볼 수 있다.    
-[MSDN](https://docs.microsoft.com/en-us/windows/win32/menurc/wm-command)에서는 컨트롤이 부모창에 알림 <span style="color:red">메세지</span>를 보낼 때 전송된다고 한다. 
+이런 매크로의 형태로 정의되어있고 이어서 `ON_CONTROL` 까지 확인 할 수 있다.   
+마지막으로 `WM_COMMAND` 는 특정한 값으로 정의되어있는것을 볼 수 있다.    
+[MSDN](https://docs.microsoft.com/en-us/windows/win32/menurc/wm-command)에서는 컨트롤이 부모창에 알림 `메세지`를 보낼 때 전송된다고 한다. 
 
 
 </br>
@@ -68,7 +68,7 @@ while( (bRet = GetMessage( &msg, NULL, 0, 0 )) != 0)
 }
 ```   
 그리고 Win32에는 반드시 위와 같은 메세지 처리 loop가 포함되어있다.   
-메세지 루프는 <span style="color:red">Message Queue</span>로 부터 message를 가져와 변환 작업을 수행하고 적절한 window procedure에게 보내주는 동작을 수행한다.
+메세지 루프는 `Message Queue`로 부터 message를 가져와 변환 작업을 수행하고 적절한 window procedure에게 보내주는 동작을 수행한다.
 
 
 </br>
