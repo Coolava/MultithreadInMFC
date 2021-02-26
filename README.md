@@ -50,7 +50,7 @@ END_MESSAGE_MAP()
 
 </br>
 
-MFC는 Win32 및 여러 windows COM 개체에 대한 wrapper 클래스이다. 당신이 Visual Studio에서 MFC 데스크톱 어플리케이션을 선택하여 새로운 프로젝트를 생성 하게되면 내부에는 Win32가 포함되어 있다는 뜻이다. 
+MFC는 Win32에 대한 wrapper 클래스이다. 당신이 Visual Studio에서 MFC 데스크톱 어플리케이션을 선택하여 새로운 프로젝트를 생성 하게되면 내부에는 Win32가 포함되어 있다는 뜻이다. 
 ```cpp
 while( (bRet = GetMessage( &msg, NULL, 0, 0 )) != 0)
 { 
@@ -80,7 +80,7 @@ while( (bRet = GetMessage( &msg, NULL, 0, 0 )) != 0)
 
 ## 여러개의 스레드에서 GUI에 접근하는 것을 피하자.
 우리는 위에서 GUI Control에 접근 하게되면 메세지가 발생하는것을 확인했다.   
- 이 메세지는 Edit Control에서 Text를 가져 올 때 조차 발생한다. 또한 MFC의 중심에는 FIFO(First in first Out)의 Message Queue가 있다. 여러개의 스레드에서 GUI Control에 접근하게되면 Message Queue에는 처리되지못한 메세지들이 쌓이게 될 것이다.   
+ 이 메세지는 Edit Control에서 Text를 가져 올 때 조차 발생한다. 또한 MFC의 중심에는 FIFO(First in first out)의 Message Queue가 있다. 여러개의 스레드에서 GUI Control에 접근하게되면 Message Queue에는 처리되지못한 메세지들이 쌓이게 될 것이다.   
 이 때 발생하는것이 흔히 말하는 `렉` 이다.
 
 </br>
